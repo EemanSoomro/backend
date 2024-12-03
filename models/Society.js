@@ -1,33 +1,18 @@
 const mongoose = require('mongoose');
 
-// Define the schema for Society
-const SocietySchema = new mongoose.Schema(
-  {
-    name: {
-      type: String,
-      required: true,
-      unique: true, // Ensures society name is unique
-    },
-    description: {
-      type: String,
-      required: true,
-    },
-    picture: {
-      type: String, // Image path for society's main picture
-      required: true,
-    },
-    background: {
-      type: String, // Image path for society's background picture
-      required: true,
-    },
-    code: {
-      type: String,
-      required: true,
-      unique: true, // Ensures society code is unique
-    },
-  },
-  { timestamps: true } // Automatically adds createdAt and updatedAt fields
-);
+const SocietySchema = new mongoose.Schema({
+    name: { type: String, required: true, unique: true },
+    description: String,
+    picture: String,
+    tagline: String, // optional field for additional description
+    events: [{ name: String, details: String, date: String }], // array of events
+    roles: [String], // array of roles
+    background: String, // optional background image or data specific to the detail page
+    code: String, // unique identifier or code for the society
+}, {
+    timestamps: true, // adds createdAt and updatedAt fields automatically
+});
 
-// Create and export the model
-module.exports = mongoose.model('Society', SocietySchema);
+const Society = mongoose.model('Society', SocietySchema);
+
+module.exports = Society;

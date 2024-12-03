@@ -18,7 +18,8 @@ app.use(cors());
 app.use(express.json());
 
 // Serve static files (images) from the 'images/societies' folder
-app.use('/images', express.static('images'));
+app.use('/images', express.static(path.join(__dirname, 'public/images')));
+
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI)
