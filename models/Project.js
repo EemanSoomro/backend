@@ -9,7 +9,6 @@ const ProjectSchema = new mongoose.Schema({
         type: String,
         default: ""
     },
-    
     objective: {
         type: String,
         default: ""
@@ -34,11 +33,23 @@ const ProjectSchema = new mongoose.Schema({
         type: String,
         default: ""
     },
-    picture:
-     { type: String, 
-    default: ""
- }
-
+    picture: {
+        type: String,
+        default: ""
+    },
+    year: {
+        type: Number,
+        required: true // Making it required if it's essential to have a year
+    },
+    status: {
+        type: String,
+        default: "ongoing", // You could also default it to "completed", "in progress", or similar
+        enum: ["ongoing", "completed", "planned", "canceled"] // Restricting possible values for better validation
+    },
+    university: { // New field for university
+        type: String,
+        required: true // Assuming university is required
+    }
 }, { timestamps: true });
 
 module.exports = mongoose.model("Project", ProjectSchema);
