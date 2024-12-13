@@ -31,7 +31,8 @@ app.use('/api/announcements', announcementRoute);
 app.use('/api/projects', projectRoute);
 app.use('/api/events', eventRoute);
 app.use('/api/societies', societyRoute);
-app.use('/api/users', userRoute);
+app.use('/api/auth/users', userRoute);
+app.use('/api/auth', authRoute);
 
 // Server
 const PORT = process.env.PORT || 8800;
