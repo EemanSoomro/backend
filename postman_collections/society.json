@@ -1,0 +1,145 @@
+{
+    "info": {
+      "name": "Society API Collection",
+      "description": "Postman collection for Society API based on Mongoose schema.",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Create Society",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"name\": \"Society Name\",\n  \"description\": \"Description of the society\",\n  \"picture\": \"Picture URL\",\n  \"tagline\": \"Society Tagline\",\n  \"events\": [{ \"name\": \"Event Name\", \"details\": \"Event Details\", \"date\": \"Event Date\" }],\n  \"roles\": [\"Role 1\", \"Role 2\"],\n  \"background\": \"Background URL\",\n  \"code\": \"Society Code\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:8800/api/societies",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "societies"]
+          }
+        }
+      },
+      {
+        "name": "Get All Societies",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:8800/api/societies",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "societies"]
+          }
+        }
+      },
+      {
+        "name": "Get Society By ID",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:8800/api/societies/find/:id",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "societies", "find", ":id"],
+            "variable": [
+              {
+                "key": "id",
+                "value": "societyId"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Update Society",
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"name\": \"Updated Society Name\",\n  \"description\": \"Updated Description\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:8800/api/societies/:id",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "societies", ":id"],
+            "variable": [
+              {
+                "key": "id",
+                "value": "societyId"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Delete Society",
+        "request": {
+          "method": "DELETE",
+          "url": {
+            "raw": "http://localhost:8800/api/societies/:id",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "societies", ":id"],
+            "variable": [
+              {
+                "key": "id",
+                "value": "societyId"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Search Societies",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:8800/api/societies/search/:name",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "societies", "search", ":name"],
+            "variable": [
+              {
+                "key": "name",
+                "value": "societyName"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Get Random Society",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:8800/api/societies/random",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "societies", "random"]
+          }
+        }
+      }
+    ]
+  }
+  

@@ -1,0 +1,113 @@
+{
+    "info": {
+      "name": "Announcement API Collection",
+      "description": "Postman collection for Announcement API based on Mongoose schema.",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Create Announcement",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"type\": \"General\",\n  \"subject\": \"Important Update\",\n  \"body\": \"This is the body of the announcement.\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:8800/api/announcements",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "announcements"]
+          }
+        }
+      },
+      {
+        "name": "Get All Announcements",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:8800/api/announcements",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "announcements"]
+          }
+        }
+      },
+      {
+        "name": "Get Announcement By ID",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:8800/api/announcements/find/:id",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "announcements", "find", ":id"],
+            "variable": [
+              {
+                "key": "id",
+                "value": "announcementId"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Update Announcement",
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"type\": \"Update\",\n  \"subject\": \"Updated Subject\",\n  \"body\": \"Updated body of the announcement.\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:8800/api/announcements/:id",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "announcements", ":id"],
+            "variable": [
+              {
+                "key": "id",
+                "value": "announcementId"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Delete Announcement",
+        "request": {
+          "method": "DELETE",
+          "url": {
+            "raw": "http://localhost:8800/api/announcements/:id",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "announcements", ":id"],
+            "variable": [
+              {
+                "key": "id",
+                "value": "announcementId"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+  

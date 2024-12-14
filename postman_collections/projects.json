@@ -1,0 +1,193 @@
+{
+    "info": {
+      "name": "Project API Collection",
+      "description": "Postman collection for Project API based on Mongoose schema.",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Create Project",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"name\": \"Project Name\",\n  \"type\": \"Type\",\n  \"objective\": \"Objective of the project\",\n  \"application\": \"Application domain\",\n  \"technologies\": \"Technologies used\",\n  \"abstract\": \"Abstract details\",\n  \"supervisor\": \"Supervisor Name\",\n  \"domain\": \"Domain\",\n  \"picture\": \"Picture URL\",\n  \"year\": 2024,\n  \"status\": \"ongoing\",\n  \"university\": \"University Name\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:8800/api/projects",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "projects"]
+          }
+        }
+      },
+      {
+        "name": "Get All Projects",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:8800/api/projects",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "projects"]
+          }
+        }
+      },
+      {
+        "name": "Get Project By ID",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:8800/api/projects/find/:id",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "projects", "find", ":id"],
+            "variable": [
+              {
+                "key": "id",
+                "value": "projectId"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Update Project",
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"name\": \"Updated Project Name\",\n  \"type\": \"Updated Type\",\n  \"objective\": \"Updated objective\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:8800/api/projects/:id",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "projects", ":id"],
+            "variable": [
+              {
+                "key": "id",
+                "value": "projectId"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Delete Project",
+        "request": {
+          "method": "DELETE",
+          "url": {
+            "raw": "http://localhost:8800/api/projects/:id",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "projects", ":id"],
+            "variable": [
+              {
+                "key": "id",
+                "value": "projectId"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Search Projects",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:8800/api/projects/search/:search",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "projects", "search", ":search"],
+            "variable": [
+              {
+                "key": "search",
+                "value": "query"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Get Projects By Type",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:8800/api/projects/type/:type",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "projects", "type", ":type"],
+            "variable": [
+              {
+                "key": "type",
+                "value": "projectType"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Get Projects By Domain",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:8800/api/projects/domain/:domain",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "projects", "domain", ":domain"],
+            "variable": [
+              {
+                "key": "domain",
+                "value": "projectDomain"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Get Projects By Type and Domain",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:8800/api/projects/type/:type/domain/:domain",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "projects", "type", ":type", "domain", ":domain"],
+            "variable": [
+              {
+                "key": "type",
+                "value": "projectType"
+              },
+              {
+                "key": "domain",
+                "value": "projectDomain"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+  

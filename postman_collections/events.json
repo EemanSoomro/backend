@@ -1,0 +1,151 @@
+{
+    "info": {
+      "name": "Event API Collection",
+      "description": "Postman collection for Event API based on Mongoose schema.",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Create Event",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"name\": \"Sample Event\",\n  \"description\": \"This is a sample event description.\",\n  \"societyCode\": \"SC001\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:8800/api/events",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "events"]
+          }
+        }
+      },
+      {
+        "name": "Get All Events",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:8800/api/events",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "events"]
+          }
+        }
+      },
+      {
+        "name": "Get Event By ID",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:8800/api/events/find/:id",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "events", "find", ":id"],
+            "variable": [
+              {
+                "key": "id",
+                "value": "eventId"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Update Event",
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"name\": \"Updated Event\",\n  \"description\": \"Updated description.\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:8800/api/events/:id",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "events", ":id"],
+            "variable": [
+              {
+                "key": "id",
+                "value": "eventId"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Delete Event",
+        "request": {
+          "method": "DELETE",
+          "url": {
+            "raw": "http://localhost:8800/api/events/:id",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "events", ":id"],
+            "variable": [
+              {
+                "key": "id",
+                "value": "eventId"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Get Events By Society Code",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:8800/api/events/findbyCode/:societyCode",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "events", "findbyCode", ":societyCode"],
+            "variable": [
+              {
+                "key": "societyCode",
+                "value": "SC001"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Get Events By Society ID",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:8800/api/events/findbySocietyId/:societyId",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "8800",
+            "path": ["api", "events", "findbySocietyId", ":societyId"],
+            "variable": [
+              {
+                "key": "societyId",
+                "value": "societyId"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+  
