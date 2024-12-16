@@ -1,0 +1,23 @@
+[
+    { "username": "2180201", "email": "Rukhsana@gmail.com", "password": "Rukhsana1234", "profilePicture": "", "isAdmin": false },
+    { "username": "2180202", "email": "Majid@gmail.com", "password": "Majid1234", "profilePicture": "", "isAdmin": false },
+    { "username": "2180203", "email": "Rubina@gmail.com", "password": "Rubina1234", "profilePicture": "", "isAdmin": false },
+    { "username": "2180204", "email": "Sarfaraz@gmail.com", "password": "Sarfaraz1234", "profilePicture": "", "isAdmin": false },
+    { "username": "2180205", "email": "Saira@gmail.com", "password": "Saira1234", "profilePicture": "", "isAdmin": false },
+    { "username": "2180206", "email": "Waleed@gmail.com", "password": "Waleed1234", "profilePicture": "", "isAdmin": false },
+    { "username": "2180207", "email": "Shabbir@gmail.com", "password": "Shabbir1234", "profilePicture": "", "isAdmin": false },
+    { "username": "2180208", "email": "Rida@gmail.com", "password": "Rida1234", "profilePicture": "", "isAdmin": false },
+    { "username": "2180209", "email": "Fariha@gmail.com", "password": "Fariha1234", "profilePicture": "", "isAdmin": false },
+    { "username": "2180210", "email": "Asim@gmail.com", "password": "Asim1234", "profilePicture": "", "isAdmin": false },
+    { "username": "2180211", "email": "Sara@gmail.com", "password": "Sara1234", "profilePicture": "", "isAdmin": false },
+    { "username": "2180212", "email": "Haleema@gmail.com", "password": "Haleema1234", "profilePicture": "", "isAdmin": false },
+    { "username": "2180213", "email": "Arshad@gmail.com", "password": "Arshad1234", "profilePicture": "", "isAdmin": false },
+    { "username": "2180214", "email": "Afia@gmail.com", "password": "Afia1234", "profilePicture": "", "isAdmin": false },
+    { "username": "2180215", "email": "Samar@gmail.com", "password": "Samar1234", "profilePicture": "", "isAdmin": false },
+    { "username": "2180216", "email": "Laila@gmail.com", "password": "Laila1234", "profilePicture": "", "isAdmin": false },
+    { "username": "2180217", "email": "Mubeen@gmail.com", "password": "Mubeen1234", "profilePicture": "", "isAdmin": false },
+    { "username": "2180218", "email": "Nabeel@gmail.com", "password": "Nabeel1234", "profilePicture": "", "isAdmin": false },
+    { "username": "2180219", "email": "Sumera@gmail.com", "password": "Sumera1234", "profilePicture": "", "isAdmin": false },
+    { "username": "2180220", "email": "Madiha@gmail.com", "password": "Madiha1234", "profilePicture": "", "isAdmin": false }
+  ]
+  

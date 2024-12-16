@@ -1,40 +1,44 @@
 const express = require('express');
-const router = express.Router();
-const User = require('../models/User'); // Assuming User model exists
 const bcrypt = require('bcryptjs');
+const User = require('../models/User');
+const verifyToken = require('./verifyToken');
 
-// Register Route
+const router = express.Router();
+
+// User Registration Route
 router.post('/register', async (req, res) => {
   const { email, password, name } = req.body;
-
-  if (!email || !password || !name) {
-    return res.status(400).json({ message: 'All fields are required' });
-  }
 
   try {
     // Check if user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(400).json({ message: 'Email already exists' });
+      return res.status(400).json({ message: 'User already exists' });
     }
 
-    // Hash the password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+    // Hash password
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create a new user
-    const newUser = new User({
-      name,
-      email,
-      password: hashedPassword,
-    });
-
+    // Create new user
+    const newUser = new User({ email, password: hashedPassword, name });
     await newUser.save();
-    res.status(201).json({ message: 'Registration successful' });
 
+    res.status(201).json({ message: 'User registered successfully' });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Internal server error' });
+    res.status(500).json({ message: 'Error registering user', error });
+  }
+});
+
+// Protected Route (only accessible with token)
+router.get('/profile', verifyToken, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.status(200).json({ user });
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching user profile', error });
   }
 });
 
