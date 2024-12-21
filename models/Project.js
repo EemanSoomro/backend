@@ -43,8 +43,8 @@ const ProjectSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        default: "ongoing", // You could also default it to "completed", "in progress", or similar
-        enum: ["ongoing", "completed", "planned", "canceled"] // Restricting possible values for better validation
+        default: "In Progress", // You could also default it to "completed", "in progress", or similar
+        enum: ["In Progress", "completed", "planned", "canceled"] // Restricting possible values for better validation
     },
     university: { // New field for university
         type: String,
