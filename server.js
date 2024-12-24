@@ -3,37 +3,28 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
-
-const authRoute = require('./routes/auth');
-const userRoute = require('./routes/users');
-const societyRoute = require('./routes/societies');
-const eventRoute = require('./routes/events');
-const projectRoute = require('./routes/projects');
-const announcementRoute = require('./routes/announcements');
+const http = require('http');
+const { Server } = require('socket.io');
+const discussionRoutes = require('./routes/discussionRoutes');
+const discussionSocket = require('./sockets/discussionSocket');
 
 dotenv.config();
 const app = express();
+const server = http.createServer(app);
+const io = new Server(server, { cors: { origin: '*' } });
 
 app.use(cors());
 app.use(express.json());
-
-// Serve static files (images) from the 'images/societies' folder
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB connected successfully'))
+  .catch((err) => console.error('DB connection error:', err));
 
-// MongoDB Connection
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB connected successfully"))
-  .catch((err) => console.log("DB connection error:", err));
+// Fix: Ensure the route path matches what the frontend is calling
+app.use('/api/discussions', discussionRoutes);
 
-// Routes
-app.use('/api/announcements', announcementRoute);
-app.use('/api/projects', projectRoute);
-app.use('/api/events', eventRoute);
-app.use('/api/societies', societyRoute);
-app.use('/api/users', userRoute);
-app.use('/api/auth', authRoute);
+discussionSocket(io);
 
-// Server
 const PORT = process.env.PORT || 8800;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
